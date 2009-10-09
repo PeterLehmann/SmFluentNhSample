@@ -22,9 +22,9 @@ namespace BookShelf.Registries
             ForRequestedType<ISession>()
                 .CacheBy(InstanceScope.Hybrid)
                 .TheDefault.Is.ConstructedBy((ctx) => ctx.GetInstance<ISessionFactory>().OpenSession());
-            //ForRequestedType<ITransaction>()
-            //    .CacheBy(InstanceScope.Hybrid)
-            //    .TheDefault.Is.ConstructedBy((ctx) => ctx.GetInstance<ISession>().BeginTransaction());
+            ForRequestedType<ITransaction>()
+                .CacheBy(InstanceScope.Hybrid)
+                .TheDefault.Is.ConstructedBy((ctx) => ctx.GetInstance<ISession>().BeginTransaction());
 
         }
     }

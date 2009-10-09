@@ -1,29 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using NHibernate;
 
 namespace BookShelf.Models
 {
-    public class BookRepository
+    public class BookRepository : IBookRepository
     {
         private readonly ISession _session;
-
+        private readonly ITransaction _transaction;
         public BookRepository(ISession session)
         {
             if (session == null) throw new ArgumentNullException("session");
             _session = session;
+            _transaction = _session.BeginTransaction();
         }
 
+        public void Commit()
+        {
+            _transaction.Commit();
+        }
+
+        public void Rollback()
+        {
+            _transaction.Rollback();
+        }
         
+        public Book GetById(int isbn)
+        {
+            var book = _session.Get<Book>(isbn);
+            return book;
+        }
+
+        public void Update(Book book)
+        {
+            if (book == null) throw new ArgumentNullException("book");
+            _session.SaveOrUpdate(book);
+        }
+
+        public IList<Book> GetAll()
+        {
+            var criteria = _session.CreateCriteria(typeof(Book));
+
+            return criteria.List<Book>() as List<Book>;
+        }
     }
 }
