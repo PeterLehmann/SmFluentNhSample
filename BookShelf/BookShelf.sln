@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShelf", "BookShelf\BookShelf.csproj", "{FD30733C-1727-4D22-8EF2-4173C8DB4083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShelf.Tests", "BookShelf.Tests\BookShelf.Tests.csproj", "{41358CDB-B842-4ECD-8D13-45492AE90870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookShelf.Db", "BookShelf.Db\BookShelf.Db.csproj", "{E848D80C-8F69-498F-A110-34740BEC903C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD30733C-1727-4D22-8EF2-4173C8DB4083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD30733C-1727-4D22-8EF2-4173C8DB4083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD30733C-1727-4D22-8EF2-4173C8DB4083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD30733C-1727-4D22-8EF2-4173C8DB4083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41358CDB-B842-4ECD-8D13-45492AE90870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41358CDB-B842-4ECD-8D13-45492AE90870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41358CDB-B842-4ECD-8D13-45492AE90870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41358CDB-B842-4ECD-8D13-45492AE90870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E848D80C-8F69-498F-A110-34740BEC903C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E848D80C-8F69-498F-A110-34740BEC903C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E848D80C-8F69-498F-A110-34740BEC903C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E848D80C-8F69-498F-A110-34740BEC903C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
