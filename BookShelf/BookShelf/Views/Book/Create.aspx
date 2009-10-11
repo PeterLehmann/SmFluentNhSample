@@ -25,6 +25,11 @@
                 <%= Html.ValidationMessage("Title", "*") %>
             </p>
             <p>
+                <label for="Author">Author:</label>
+                <%= Html.Hidden("Author", Model.Author == null ? null : (Guid?)Model.Author.PersonId) %>
+                
+            </p>
+            <p>
                 <label for="Description">Description:</label>
                 <%= Html.TextBox("Description") %>
                 <%= Html.ValidationMessage("Description", "*") %>

@@ -55,6 +55,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\NHibernate\bins\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Migrator, Version=0.9.0.28138, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\migratordotnet\lib\Migrator.dll</HintPath>
+    </Reference>
+    <Reference Include="Migrator.Framework, Version=0.9.0.26940, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\migratordotnet\lib\Migrator.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\NHibernate\bins\NHibernate.dll</HintPath>
@@ -62,6 +70,10 @@
     <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\NHibernate\bins\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NHibernate\Linq\NHibernate.Linq.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.5.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -92,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -102,13 +115,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IocControllerFactory.cs" />
-    <Compile Include="Maps\BookMap.cs" />
-    <Compile Include="Maps\PersonMap.cs" />
+    <Compile Include="Map\BookMap.cs" />
+    <Compile Include="Map\PersonMap.cs" />
+    <Compile Include="Migrators\MigratorSet.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookRepository.cs" />
     <Compile Include="Models\IBookRepository.cs" />
+    <Compile Include="Models\IPersonRepository.cs" />
     <Compile Include="Models\IVaild.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PersonRepository.cs" />
+    <Compile Include="Models\VaildException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registries\Bootstrapper.cs" />
     <Compile Include="Registries\CoreRegistry.cs" />
@@ -141,6 +158,12 @@
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookShelf.Db\BookShelf.Db.csproj">
+      <Project>{E848D80C-8F69-498F-A110-34740BEC903C}</Project>
+      <Name>BookShelf.Db</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

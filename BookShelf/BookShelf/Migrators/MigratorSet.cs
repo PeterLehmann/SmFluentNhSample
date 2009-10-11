@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Data;
 using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+using BookShelf.Db;
+using MigratorClass = Migrator.Migrator;
 
 namespace BookShelf.Migrators
 {
     public class MigratorSet
     {
-        public void Setup()
+        public static void Setup(ConnectionStringSettings connectionStringSettings)
         {
+            if (connectionStringSettings == null) throw new ArgumentNullException("connectionStringSettings");
             
+            var assembly = typeof(BookMigration).Assembly;
+            var migrator = new MigratorClass(connectionStringSettings.ProviderName, connectionStringSettings.ConnectionString, assembly);
+            migrator.MigrateToLastVersion();
         }
     }
 }

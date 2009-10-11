@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BookShelf.Migrators;
 using BookShelf.Registries;
+using StructureMap;
 
 namespace BookShelf
 {
@@ -27,8 +30,9 @@ namespace BookShelf
 
         protected void Application_Start()
         {
+            MigratorSet.Setup(ConfigurationManager.ConnectionStrings["bookStore"]);
             Bootstrapper.Restart();
-
+            System.Diagnostics.Debug.Write(ObjectFactory.WhatDoIHave());
             RegisterRoutes(RouteTable.Routes);
             ControllerBuilder.Current.SetControllerFactory(new IocControllerFactory());
         }

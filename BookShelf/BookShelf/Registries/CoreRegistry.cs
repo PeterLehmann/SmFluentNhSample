@@ -22,6 +22,7 @@ namespace BookShelf.Registries
                      {
                          x.TheCallingAssembly();
                          x.AddAllTypesOf(typeof(IController));
+                         x.WithDefaultConventions();
                      });
                 
             // TODO: whire it togeter

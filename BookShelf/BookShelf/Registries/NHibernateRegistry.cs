@@ -1,4 +1,4 @@
-﻿using BookShelf.Maps;
+﻿using BookShelf.Map;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -15,7 +15,7 @@ namespace BookShelf.Registries
                 .CacheBy(InstanceScope.Singleton)
                 .TheDefault.Is.ConstructedBy(() => Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2008
-                .ConnectionString(x => x.FromConnectionStringWithKey("Connection String"))
+                .ConnectionString(x => x.FromConnectionStringWithKey("bookStore"))
                 .Dialect<NHibernate.Dialect.MsSql2005Dialect>())
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<BookMap>())
                 .BuildSessionFactory());

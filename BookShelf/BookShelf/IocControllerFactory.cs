@@ -7,6 +7,7 @@ namespace BookShelf
 {
     public class IocControllerFactory : DefaultControllerFactory 
     {
+        [DebuggerStepThrough]
         protected override IController GetControllerInstance(Type controllerType)
         {
             try
