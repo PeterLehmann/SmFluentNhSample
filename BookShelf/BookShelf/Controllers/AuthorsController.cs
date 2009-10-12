@@ -28,16 +28,27 @@ namespace BookShelf.Controllers
             return View(persons);
         }
 
-        public ActionResult Search()
+        public ActionResult Create()
         {
-            return View();
+            var person = new Person();
+            return View(person);
         }
 
-        public ActionResult Search(FormCollection collection)
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create(Person person)
         {
-            
-        }
+            if(ModelState.IsValid)
+            {
+                
+                UpdateModel(person);
+                
+                _personRepository.Save(person);
+                _personRepository.Commit();
+                return RedirectToAction("Index");
+            }
 
+            return View(person);
+        }
     }
 
     

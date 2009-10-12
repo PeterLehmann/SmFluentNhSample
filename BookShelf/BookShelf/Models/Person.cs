@@ -4,8 +4,9 @@ namespace BookShelf.Models
 {
     public class Person
     {
-        private Person()
+        public Person()
         {
+            PersonId = Guid.NewGuid();
         }
 
         public Person(string firstName, string lastName)

@@ -27,7 +27,14 @@
             <p>
                 <label for="Author">Author:</label>
                 <%= Html.Hidden("Author", Model.Author == null ? null : (Guid?)Model.Author.PersonId) %>
-                
+                <% if (Model.Author == null)
+                   { %>
+                    <%= Html.Encode("select a author or Create a new author")%>
+                <% }
+                   else
+                   {%>
+                    <%= Html.Encode(Model.Author.ToString())%>
+                    <% } %>
             </p>
             <p>
                 <label for="Description">Description:</label>

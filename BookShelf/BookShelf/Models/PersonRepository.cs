@@ -48,6 +48,18 @@ namespace BookShelf.Models
 
             return query;
         }
+
+        public void Save(Person person)
+        {
+            if (person == null) throw new ArgumentNullException("person");
+            _session.Save(person);
+        }
+
+        public void Update(Person person)
+        {
+            if (person == null) throw new ArgumentNullException("person");
+            _session.Update(person);
+        }
     }
 
     public class PersonSearchOptions

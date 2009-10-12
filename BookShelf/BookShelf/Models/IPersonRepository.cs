@@ -11,6 +11,7 @@ namespace BookShelf.Models
         void Rollback();
         IQueryable<Person> GetAll();
         IQueryable<Person> GetBySearchOption(PersonSearchOptions options);
-
+        void Save(Person person);
+        void Update(Person person);
     }
 }

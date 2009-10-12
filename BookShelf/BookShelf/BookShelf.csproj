@@ -134,6 +134,8 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Authors\Create.aspx" />
+    <Content Include="Views\Authors\Index.aspx" />
     <Content Include="Views\Book\Create.aspx" />
     <Content Include="Views\Book\Details.aspx" />
     <Content Include="Views\Book\Index.aspx" />
