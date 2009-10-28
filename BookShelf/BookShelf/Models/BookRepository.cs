@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace BookShelf.Models
 {
@@ -39,9 +41,7 @@ namespace BookShelf.Models
 
         public IList<Book> GetAll()
         {
-            var criteria = _session.CreateCriteria(typeof(Book));
-
-            return criteria.List<Book>() as List<Book>;
+            return _session.Linq<Book>().ToList();
         }
     }
 }
